@@ -28,7 +28,17 @@
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         </config-file>
+            
+            
+        <edit-config file="AndroidManifest.xml" target="/manifest/application/service[@android:name='com.element.camera.ElementJobService']" mode="merge">
+                <service android:exported="false" />
+        </edit-config>
 
+        <edit-config file="AndroidManifest.xml" target="/manifest/application/provider[@android:name='com.element.camera.ElementProvider']" mode="merge">
+                <provider android:exported="false" />
+        </edit-config>
+            
+            
         <source-file src="src/android/ElementCordovaFaceCaptureActivity.java" target-dir="src/com/element/camera" />
         <source-file src="src/android/ElementFaceMatchingSDK.java" target-dir="src/com/element/plugin" />
         <source-file src="src/android/ElementApiTask.java" target-dir="src/com/element/plugin" />
